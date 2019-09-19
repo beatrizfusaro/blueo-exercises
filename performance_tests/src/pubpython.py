@@ -15,7 +15,7 @@ class PerfTests(object):
 	self.rate = 10.0
         self.enable = True
         self.server = DynamicReconfigureServer(ConfigType, self.reconfigure_cb)
-        self.pub = rospy.Publisher('chatter', SuperAwesome, queue_size=10)
+        self.pub = rospy.Publisher('pychatter', SuperAwesome, queue_size=10)
         
 	self.rate = rospy.get_param('~rate', 10.0)
         self.enable = rospy.get_param('~enable', True)
@@ -29,7 +29,7 @@ class PerfTests(object):
         rospy.Timer(rospy.Duration(1.0 / self.rate), self.timer_cb)
 
     def start(self):
-        self.pub = rospy.Publisher('chatter', SuperAwesome, queue_size=10)
+        self.pub = rospy.Publisher('pychatter', SuperAwesome, queue_size=10)
 
     def stop(self):
         self.pub.unregister()

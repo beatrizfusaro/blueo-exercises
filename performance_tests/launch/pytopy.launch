@@ -1,10 +1,11 @@
 <launch>
-  <arg name="rate" default="1.0"/>
+  <arg name="rate" default="650.0"/>
 
   <!-- Python publisher -->
   <node pkg="performance_tests" type="pubpython.py" name="pubpython">
     <param name="message" value="hello world - Python"/>
     <param name="rate" value="$(arg rate)"/>
+    <remap from="pychatter" to="chatter"/>
   </node>
 
   <!-- Python subscriber -->

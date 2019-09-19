@@ -1,14 +1,14 @@
 <launch>
-  <arg name="rate" default="1.0"/>
-
-  <!-- C++ subscriber -->
-  <node pkg="performance_tests" type="subscriber" name="subscriber">
-  </node>
+  <arg name="rate" default="650.0"/>
 
   <!-- Python publisher -->
   <node pkg="performance_tests" type="pubpython.py" name="pubpython">
-    <param name="message" value="hellow world - Python"/>
+    <param name="message" value="hello world - Python"/>
     <param name="rate" value="$(arg rate)"/>
+  </node>
+
+  <!-- C++ subscriber -->
+  <node pkg="performance_tests" type="subscriber" name="subscriber">
   </node>
 
   <include file="$(find node_example)/launch/tools.launch"/>
