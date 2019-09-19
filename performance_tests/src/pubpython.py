@@ -50,7 +50,7 @@ class PerfTests(object):
 	
 	if self.rate != config["rate"]:
             self.rate = config["rate"]
-	    rospy.Timer(rospy.Duration(1.0 / self.rate), self.timer_cb)
+	    rospy.Timer(rospy.Duration(1.0 / self.rate), self.timer_cb) # restarts timer when rate is updated
 
         if self.enable != config["enable"]:
             if config["enable"]:

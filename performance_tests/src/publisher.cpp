@@ -18,7 +18,7 @@ PublisherTest::PublisherTest(ros::NodeHandle nh) : nh_(nh), message_("hello worl
     start();
   }
 
-  timer_ = nh_.createTimer(ros::Duration(1.0 / rate_), &PublisherTest::timerCallback, this);
+  timer_ = nh_.createTimer(ros::Duration(1.0 / rate_), &PublisherTest::timerCallback, this); // Timer based on dynamically input rate
 }
 
 void PublisherTest::start()
@@ -41,7 +41,7 @@ void PublisherTest::timerCallback(const ros::TimerEvent &event __attribute__((un
   performance_tests::SuperAwesome msg;
   msg.message = message_;
 
-  pub_.publish(msg);
+  pub_.publish(msg); // Publishes message whenever the timer pings
 }
 
 void PublisherTest::configCallback(performance_tests::perfTestsConfig &config, uint32_t level __attribute__((unused)))
@@ -50,7 +50,7 @@ void PublisherTest::configCallback(performance_tests::perfTestsConfig &config, u
   if (rate_ != config.rate)
   {
     rate_ = config.rate;
-    timer_ = nh_.createTimer(ros::Duration(1.0 / rate_), &PublisherTest::timerCallback, this);
+    timer_ = nh_.createTimer(ros::Duration(1.0 / rate_), &PublisherTest::timerCallback, this); // Updates timer if rate has changed
   }
 
   if (enable_ != config.enable)
