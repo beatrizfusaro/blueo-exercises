@@ -1,0 +1,15 @@
+<launch>
+  <arg name="rate" default="10.0"/>
+
+  <!-- C++ publisher -->
+  <node pkg="performance_tests" type="publisher" name="publisher">
+    <param name="message" value="hello world - C++" />
+    <param name="rate" value="$(arg rate)"/>
+  </node>
+
+  <!-- C++ subscriber -->
+  <node pkg="performance_tests" type="subscriber" name="subscriber">
+  </node>
+
+  <include file="$(find node_example)/launch/tools.launch"/>
+</launch>

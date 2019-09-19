@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
+
+  <node pkg="rqt_console" type="rqt_console" name="rqt_console"/>
+</launch>
