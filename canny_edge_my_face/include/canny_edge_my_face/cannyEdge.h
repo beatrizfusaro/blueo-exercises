@@ -11,9 +11,9 @@ namespace canny_edge_my_face {
 		public:
 			explicit CannyEdge(ros::NodeHandle nh);
 
-			void process(const sensor_msgs::ImageConstPtr& srcImg);
-
 		private:			
+
+			void process(const sensor_msgs::ImageConstPtr& srcImg);
 
 			ros::NodeHandle nh_;
 

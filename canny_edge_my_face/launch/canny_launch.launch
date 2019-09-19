@@ -1,11 +1,14 @@
 <launch>
 
+  <!-- Initialize computer camera -->
   <node pkg="cv_camera" type="cv_camera_node" name="cv_camera">
     <param name="cv_camera/vice_id" value="0" />
   </node>
 
+  <!-- Add canny edge -->
   <node pkg="canny_edge_my_face" type="cannyEdge" name="cannyEdge">
   </node>
 
+  <!-- Initialize image viewer -->
   <node pkg="rqt_image_view" type="rqt_image_view" name="rqt_image_view"/>
 </launch>
