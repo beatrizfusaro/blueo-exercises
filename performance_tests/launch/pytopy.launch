@@ -1,0 +1,15 @@
+<launch>
+  <arg name="rate" default="1.0"/>
+
+  <!-- Python publisher -->
+  <node pkg="performance_tests" type="pubpython.py" name="pubpython">
+    <param name="message" value="hello world - Python"/>
+    <param name="rate" value="$(arg rate)"/>
+  </node>
+
+  <!-- Python subscriber -->
+  <node pkg="performance_tests" type="subpython.py" name="subpython">
+  </node>
+
+  <include file="$(find node_example)/launch/tools.launch"/>
+</launch>

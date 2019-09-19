@@ -37,6 +37,7 @@ install(DIRECTORY include/${PROJECT_NAME}/
   FILES_MATCHING PATTERN "*.h"
 )
 
+install(PROGRAMS src/subpython.py src/pubpython.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 install(TARGETS subscriber publisher
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
